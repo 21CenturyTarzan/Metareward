@@ -62,7 +62,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
   ? `${farm.lpTotalInQuoteToken.toNumber().toLocaleString(undefined, { maximumFractionDigits: 7 })}`
   : ''
       
-  const lpLabel = "MTR";/* arm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '') */
+  const lpLabel = "WSC";/* arm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '') */
  
   const earnLabel = widrawLockLabel[index]/* farm.dual ? farm.dual.earnLabel : t('CAKE + Fees') */
  
@@ -70,6 +70,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
     quoteTokenAddress: farm.quoteToken.address,
     tokenAddress: farm.token.address,
   })
+
+  console.log("quote token addr:", farm.quoteToken.address);
+  console.log("token addr:", farm.token.address);
+
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   const ContractAddress = getAddress(StakingContractAddress)
   const lpAddress = getAddress(farm.lpAddresses)

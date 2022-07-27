@@ -19,7 +19,7 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 0,
-    lpSymbol: 'MRT-BNB LP',
+    lpSymbol: 'WSC-BNB LP',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
       56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
@@ -29,7 +29,7 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 1,
-    lpSymbol: 'MRT-BNB LP',
+    lpSymbol: 'WSC-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
@@ -40,7 +40,7 @@ const farms: SerializedFarmConfig[] = [
 
   {
     pid: 2,
-    lpSymbol: 'MRT-BNB LP',
+    lpSymbol: 'WSC-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',

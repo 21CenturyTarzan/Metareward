@@ -25,8 +25,8 @@ export const mainnetTokens = {
     MAINNET,
     '0xb15f39d979208F05474CF4B8f66Fd46f6f4A77f3',
     18,
-    'MRT',
-    'Meta Rewards',
+    'WSC',
+    'WealthSecrets',
     'https://metarewardstoken.com/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
@@ -1813,8 +1813,8 @@ export const testnetTokens = {
     TESTNET,
     '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     18,
-    'MRT',
-    'Meta Rewards',
+    'WSC',
+    'WealthSecrets',
     'https://metarewardstoken.com/',
   ),
   cake: new Token(

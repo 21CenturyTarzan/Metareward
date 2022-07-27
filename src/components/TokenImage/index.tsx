@@ -15,7 +15,11 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 
 const getImageUrlFromToken = (token: Token) => {
   const address = token.symbol === 'BNB' ? tokens.wbnb.address : token.address
-  return `/images/tokens/${address}.svg`
+
+  console.log(">>>>>>>>>>>",address);
+  const url = `/images/tokens/${address}.svg`;
+  console.log("=============>", url);
+  return `images/tokens/${address}.svg`
 }
 
 export const TokenPairImage: React.FC<TokenPairImageProps> = ({ primaryToken, secondaryToken, ...props }) => {

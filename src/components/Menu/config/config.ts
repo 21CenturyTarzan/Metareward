@@ -5,12 +5,12 @@ import { nftsBaseUrl } from 'views/Nft/market/constants'
 export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
 const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
-  {
-    label: t('Home'),
-    href: 'https://metarewardstoken.com/',
-    target: 'blank'
-    // icon: 'Earn',
-  },
+  // {
+  //   label: t('Home'),
+  //   href: 'https://metarewardstoken.com/',
+  //   target: 'blank'
+  //   // icon: 'Earn',
+  // },
   {
     label: t('Farms'),
     href: '/farms',
