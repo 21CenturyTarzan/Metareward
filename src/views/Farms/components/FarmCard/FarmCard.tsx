@@ -46,7 +46,7 @@ interface FarmCardProps {
   account?: string
 }
 
-const widrawLockLabel = ['15D', '30D', '60D'];
+const widrawLockLabel = ['60D', '90D', '180D'];
 const aprLabel = [45.89, 89.32, 123.59];
 const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePrice, account, index }) => {
   const { t } = useTranslation()

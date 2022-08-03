@@ -25,9 +25,17 @@ export const mainnetTokens = {
     MAINNET,
     '0xb15f39d979208F05474CF4B8f66Fd46f6f4A77f3',
     18,
+    'MRT',
+    'Metarewards',
+    'https://metarewardstoken.com/',
+  ),
+  wsc: new Token(
+    MAINNET,
+    '0xB7DAcf54a54bFea818F21472d3E71a89287841A7',
+    18,
     'WSC',
     'WealthSecrets',
-    'https://metarewardstoken.com/',
+    'https://www.wealthsecrets.io/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),

@@ -141,8 +141,8 @@ const Farms: React.FC = () => {
 
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 6 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
-  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 6 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
+  const activeFarms = farmsLP.filter((farm) => farm.pid !== 12 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
+  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 12 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
   
   const stakedOnlyFarms = activeFarms.filter(
@@ -293,12 +293,13 @@ const Farms: React.FC = () => {
   })
 */
 
-
+  if (chosenFarmsMemoized != null) console.log("===============>", chosenFarmsMemoized);
   const renderContent = (): JSX.Element => {
     return (
       <FlexLayout>
         <Route exact path={`${path}`}>
-          {chosenFarmsMemoized.map((farm, index) => (
+          {
+          chosenFarmsMemoized.map((farm, index) => (
             <FarmCard
               key={farm.pid}
               index={index}

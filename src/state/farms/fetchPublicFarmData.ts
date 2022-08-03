@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 /* import masterchefABI from 'config/abi/masterchef.json' */
-import masterchefABI from 'config/abi/metaRewards.json'
+import masterchefABI from 'config/abi/wscmasterchef.json'
 import erc20 from 'config/abi/erc20.json'
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber'

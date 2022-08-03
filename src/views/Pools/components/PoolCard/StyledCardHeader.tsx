@@ -3,7 +3,7 @@ import { CardHeader, Heading, Text, Flex } from '@pancakeswap/uikit'
 import { Token } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { TokenImage } from 'components/TokenImage'
+import { TokenImage, TokenPairImage } from 'components/TokenImage'
 import CakeVaultTokenPairImage from '../CakeVaultCard/CakeVaultTokenPairImage'
 
 const Wrapper = styled(CardHeader)<{ isFinished?: boolean; background?: string }>`
@@ -43,7 +43,7 @@ const StyledCardHeader: React.FC<{
     if (isCakePool) {
       return t('Earn CAKE, stake CAKE')
     }
-    return t('Stake %symbol%, Earn %symbol%', { symbol: stakingToken.symbol })
+    return t('Stake %symbol%, Earn %symbolearn%', { symbol: stakingToken.symbol, symbolearn: earningToken.symbol })
   }
 
   return (
@@ -58,7 +58,7 @@ const StyledCardHeader: React.FC<{
         {isAutoVault ? (
           <CakeVaultTokenPairImage width={64} height={64} />
         ) : (
-          <TokenImage token={earningToken} width={64} height={64} />
+          <TokenPairImage primaryToken={earningToken} secondaryToken={stakingToken} width={64} height={64} />
         )}
       </Flex>
     </Wrapper>

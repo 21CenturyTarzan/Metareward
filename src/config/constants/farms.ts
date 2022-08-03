@@ -8,7 +8,7 @@ const farms: SerializedFarmConfig[] = [
    * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
    */
   {
-    pid: 6,
+    pid: 12,
     lpSymbol: 'BUSD-BNB LP',
     lpAddresses: {
       97: '',
@@ -22,9 +22,9 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'WSC-BNB LP',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
-      56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
+      56: '0xb1E626349b326EFB7F52CeF9880732951a1650C7',
     },
-    token: serializedTokens.mrt,
+    token: serializedTokens.wsc,
     quoteToken: serializedTokens.wbnb,
   },
   {
@@ -32,9 +32,9 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'WSC-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
+      56: '0xb1E626349b326EFB7F52CeF9880732951a1650C7',
     },
-    token: serializedTokens.mrt,
+    token: serializedTokens.wsc,
     quoteToken: serializedTokens.wbnb,
   },
 
@@ -43,9 +43,9 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'WSC-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
+      56: '0xb1E626349b326EFB7F52CeF9880732951a1650C7',
     },
-    token: serializedTokens.mrt,
+    token: serializedTokens.wsc,
     quoteToken: serializedTokens.wbnb,
   },
 

@@ -1,7 +1,7 @@
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
 // import masterChefABI from 'config/abi/masterchef.json'
-import masterChefABI from 'config/abi/metaRewards.json'
+import masterChefABI from 'config/abi/wscmasterchef.json'
 import erc20ABI from 'config/abi/erc20.json'
 import multicall from 'utils/multicall'
 import { getMasterchefContract } from 'utils/contractHelpers'
@@ -14,7 +14,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
 const nonBnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'BNB')
 const bnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'BNB')
-const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 6)
+const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 12)
 const masterChefContract = getMasterchefContract()
 
 export const fetchPoolsAllowance = async (account) => {

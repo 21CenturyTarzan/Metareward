@@ -2,7 +2,6 @@
   "name": "pancake-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "staking",
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",

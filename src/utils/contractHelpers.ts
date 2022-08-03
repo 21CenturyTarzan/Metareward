@@ -45,7 +45,7 @@ import ifoV2Abi from 'config/abi/ifoV2.json'
 import pointCenterIfo from 'config/abi/pointCenterIfo.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
 /* import masterChef from 'config/abi/masterchef.json' */
-import masterChef from 'config/abi/metaRewards.json'
+import masterChef from 'config/abi/wscmasterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefV2 from 'config/abi/sousChefV2.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
