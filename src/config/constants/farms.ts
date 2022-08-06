@@ -48,7 +48,6 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.wsc,
     quoteToken: serializedTokens.wbnb,
   },
-
 ]
 
 export default farms

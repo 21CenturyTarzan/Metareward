@@ -21,6 +21,7 @@ export const getPoolApr = (
   const totalRewardPricePerYear = new BigNumber(rewardTokenPrice).times(tokenPerBlock).times(BLOCKS_PER_YEAR).times(bnRate)
   const totalStakingTokenInPool = new BigNumber(stakingTokenPrice).times(totalStaked)
   const apr = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
+  console.log("[tz] calculate farm apr value: totalRewardPricePerYear", totalRewardPricePerYear, " totalStaked: ", totalStaked, " stakingTokenPrice: ", stakingTokenPrice, " totalStakingTokenInPool: ", totalStakingTokenInPool);
   return apr.isNaN() || !apr.isFinite() ? null : apr.toNumber()
 }
 
@@ -42,6 +43,7 @@ export const getFarmApr = (
   const TokenPerYear = tokenPerBlock.times(BLOCKS_PER_YEAR)
   const yearlyCakeRewardAllocation = poolWeight ? poolWeight.times(TokenPerYear) : new BigNumber(NaN)
   const cakeRewardsApr = yearlyCakeRewardAllocation.times(cakePriceUsd).div(poolLiquidityUsd).times(100)
+  console.log("[tz] calculate farm apr value: yearly alloc", yearlyCakeRewardAllocation, " cakePrice: ", cakePriceUsd, " poolLiquidityusd: ", poolLiquidityUsd, " apr: ", cakeRewardsApr);
   let cakeRewardsAprAsNumber = null
   if (!cakeRewardsApr.isNaN() && cakeRewardsApr.isFinite()) {
     cakeRewardsAprAsNumber = cakeRewardsApr.toNumber()

@@ -69,10 +69,10 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             {t('Global')}
           </Text>
 {/* Delete mode setting */}
-          {/* <Flex justifyContent="space-between">
+          <Flex justifyContent="space-between">
             <Text mb="24px">{t('Dark mode')}</Text>
             <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
-          </Flex> */}
+          </Flex>
           <GasSettings />
         </Flex>
         <Flex pt="24px" flexDirection="column" borderTop={`1px ${theme.colors.cardBorder} solid`}>

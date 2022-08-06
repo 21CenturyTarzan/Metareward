@@ -49,6 +49,8 @@ export const getTokenPricesFromFarm = (farms: SerializedFarm[]) => {
     if (!prices[tokenAddress]) {
       prices[tokenAddress] = new BigNumber(farm.tokenPriceBusd).toNumber()
     }
+    const usdtAddress = '0x55d398326f99059fF775485246999027B3197955';
+    prices[usdtAddress.toLocaleLowerCase()] = 1;
     /* eslint-enable no-param-reassign */
     return prices
   }, {})
