@@ -13,6 +13,7 @@ export const nodes = [process.env.REACT_APP_NODE_1, process.env.REACT_APP_NODE_2
 const getNodeUrl = () => {
   // Use custom node if available (both for development and production)
   // However on the testnet it wouldn't work, so if on testnet - comment out the REACT_APP_NODE_PRODUCTION from env file
+  console.log("env.react_app_node", process.env.REACT_APP_NODE_PRODUCTION)
   if (process.env.REACT_APP_NODE_PRODUCTION) {
     return process.env.REACT_APP_NODE_PRODUCTION
   }

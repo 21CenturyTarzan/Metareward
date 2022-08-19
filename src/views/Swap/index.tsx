@@ -104,7 +104,9 @@ export default function Swap({ history }: RouteComponentProps) {
   const [isExpertMode] = useExpertModeManager()
 
   // get custom setting values for user
-  const [allowedSlippage] = useUserSlippageTolerance()
+  const [allowedSlippageReal] = useUserSlippageTolerance()
+
+  const allowedSlippage = allowedSlippageReal * 2;
 
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
@@ -372,8 +374,8 @@ export default function Swap({ history }: RouteComponentProps) {
             <StyledInputCurrencyWrapper mt={isChartExpanded ? '24px' : '0'} mr={isChartExpanded ? '0' : '0'}>
               <AppBody>
                 <CurrencyInputHeader
-                  title={t('Swap')}
-                  subtitle={t('Trade tokens in an instant')}
+                  title={t('BUY')}
+                  subtitle={t('Buy WSC token in an instant')}
                   setIsChartDisplayed={setIsChartDisplayed}
                   isChartDisplayed={isChartDisplayed}
                 />
@@ -395,8 +397,8 @@ export default function Swap({ history }: RouteComponentProps) {
 
                     <AutoColumn justify="space-between">
                       <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
-                        <IconButton variant="light" scale="sm">
-                          <ArrowDownIcon
+                        {/* <IconButton variant="light" scale="sm">
+                          {/* <ArrowDownIcon
                             width="16px"
                             onClick={() => {
                               setApprovalSubmitted(false) // reset 2 step UI for approvals
@@ -409,7 +411,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           <Button variant="text" id="add-recipient-button" onClick={() => onChangeRecipient('')}>
                             {t('+ Add a send (optional)')}
                           </Button>
-                        ) : null}
+                        ) : null} */}
                       </AutoRow>
                     </AutoColumn>
                     <CurrencyInputPanel
@@ -453,7 +455,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           <RowBetween align="center">
                             <Label>{t('Slippage Tolerance')}</Label>
                             <Text bold color="primary">
-                              {allowedSlippage / 100}%
+                              {allowedSlippage / 200}%
                             </Text>
                           </RowBetween>
                         )}

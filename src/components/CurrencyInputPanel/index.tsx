@@ -92,7 +92,7 @@ export default function CurrencyInputPanel({
           selected={!!currency}
           onClick={() => {
             if (!disableCurrencySelect) {
-              onPresentCurrencyModal()
+              console.log('xx')
             }
           }}
         >
@@ -116,7 +116,6 @@ export default function CurrencyInputPanel({
                   : currency?.symbol) || t('Select a currency')}
               </Text>
             )}
-            {!disableCurrencySelect && <ChevronDownIcon />}
           </Flex>
         </CurrencySelectButton>
         {account && (

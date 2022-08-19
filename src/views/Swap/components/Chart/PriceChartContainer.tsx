@@ -40,6 +40,8 @@ const PriceChartContainer: React.FC<PriceChartContainerProps> = ({
   const [isPairReversed, setIsPairReversed] = useState(false)
   const togglePairReversed = useCallback(() => setIsPairReversed((prePairReversed) => !prePairReversed), [])
 
+  console.log("[tz] for drawing chart: currencyID", inputCurrencyId, "  inputCurrency  ", inputCurrency);
+
   const { pairPrices, pairId } = useFetchPairPrices({
     token0Address: isPairReversed ? token1Address : token0Address,
     token1Address: isPairReversed ? token0Address : token1Address,

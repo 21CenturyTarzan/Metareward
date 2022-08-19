@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { escapeRegExp } from 'utils'
 import { Text, Button, Input, Flex, Box } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
@@ -46,6 +46,10 @@ const SlippageTabs = () => {
   } else {
     deadlineError = undefined
   }
+
+  // useEffect(() => {
+  //   setUserSlippageTolerance(1000);
+  // })
 
   const parseCustomSlippage = (value: string) => {
     if (value === '' || inputRegex.test(escapeRegExp(value))) {
