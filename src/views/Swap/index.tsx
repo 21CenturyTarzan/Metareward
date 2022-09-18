@@ -397,8 +397,8 @@ export default function Swap({ history }: RouteComponentProps) {
 
                     <AutoColumn justify="space-between">
                       <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
-                        {/* <IconButton variant="light" scale="sm">
-                          {/* <ArrowDownIcon
+                        <IconButton variant="light" scale="sm">
+                          <ArrowDownIcon
                             width="16px"
                             onClick={() => {
                               setApprovalSubmitted(false) // reset 2 step UI for approvals
@@ -411,7 +411,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           <Button variant="text" id="add-recipient-button" onClick={() => onChangeRecipient('')}>
                             {t('+ Add a send (optional)')}
                           </Button>
-                        ) : null} */}
+                        ) : null}
                       </AutoRow>
                     </AutoColumn>
                     <CurrencyInputPanel

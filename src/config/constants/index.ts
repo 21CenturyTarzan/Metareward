@@ -103,5 +103,9 @@ export { default as ifosConfig } from './ifo'
 
 // added new
 export const StakingContractAddress = {
-  56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257'
+  56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604'
+}
+
+export const StakingMyContractAddress = {
+  56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070'
 }

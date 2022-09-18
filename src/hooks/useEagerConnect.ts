@@ -18,8 +18,10 @@ const _binanceChainListener = async () =>
 
 const useEagerConnect = () => {
   const { login } = useAuth()
-
+  console.log("tz---------", "useeager connect 111")
   useEffect(() => {
+
+    console.log("tz---------", "useeager connect 222")
     const connectorId = window.localStorage.getItem(connectorLocalStorageKey) as ConnectorNames
 
     if (connectorId) {

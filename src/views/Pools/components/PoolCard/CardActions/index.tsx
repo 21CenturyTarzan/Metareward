@@ -32,6 +32,8 @@ const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
   const isLoading = !userData
   const canHarvest = userData.canHarvest
 
+  console.log("[tz]   sousId: ", sousId, "  isstaked: ", isStaked)
+
   return (
     <Flex flexDirection="column">
       <Flex flexDirection="column">

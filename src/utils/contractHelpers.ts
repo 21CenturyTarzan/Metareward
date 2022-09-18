@@ -92,6 +92,11 @@ export const getSouschefContract = (id: number, signer?: ethers.Signer | ethers.
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
   return getContract(abi, getAddress(config.contractAddress), signer)
 }
+export const getSouschefMyContract = (id: number, signer?: ethers.Signer | ethers.providers.Provider) => {
+  const config = poolsConfig.find((pool) => pool.sousId === id)
+  const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
+  return getContract(abi, getAddress(config.contractAddressV2), signer)
+}
 export const getSouschefV2Contract = (id: number, signer?: ethers.Signer | ethers.providers.Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
   return getContract(sousChefV2, getAddress(config.contractAddress), signer)

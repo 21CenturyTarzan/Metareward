@@ -10,6 +10,7 @@ import { getAddress } from 'utils/addressHelpers'
 import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber'
 import { getSouschefV2Contract, getMasterchefContract } from 'utils/contractHelpers'
 import tokens from 'config/constants/tokens'
+import axios from "axios"
 // import { getMasterchefContract } from 'utils/contractHelpers'
 
 const masterChefContract = getMasterchefContract()
@@ -76,8 +77,20 @@ export const fetchPoolsTotalStaking = async () => {
   const nonBnbPoolsTotalStaked = [];
   const allocPoint = [];
 
+  const contractSwitchData = await axios.get("https://spotairdrop.orbitinu.store/get-switch");
+  const contractSwitch = contractSwitchData.data;
+  console.log("[tz] contract switch status in reading pool ", contractSwitch);
+
   const forCallData = poolsConfig.filter((p) => p.stakingToken.symbol !== 'BNB')
   const calls = forCallData.map((pool) => {
+    if (contractSwitch){
+      return {
+        address: getAddress(pool.contractAddressV2),
+        name: 'poolInfo',
+        params: [pool.sousId],
+      }
+    }
+    
     return {
       address: getAddress(pool.contractAddress),
       name: 'poolInfo',
@@ -115,7 +128,7 @@ export const fetchPoolsTotalStaking = async () => {
     ...nonBnbPools.map((p, index) => ({
       sousId: p.sousId,
       totalStaked: rawPoolInfos[index].balance.toString(),
-      rate: new BigNumber(rawPoolInfos[index].allocPoint.toString()).div(new BigNumber(totalAllocPoint[0].toString())),
+      rate: new BigNumber(rawPoolInfos[index].apr.toString()),
       tokenPerBlock: new BigNumber(tokenPerBlock[0].toString()).div(BIG_TEN.pow(18)),
       harvestInterval: rawPoolInfos[index].harvestInterval.toString()
     })),

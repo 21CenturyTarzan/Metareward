@@ -18,6 +18,7 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
   const accountHasStakedBalance = stakedBalance.gt(0)
 
   // console.log("[tz] harvest interval", harvestInterval);
+  console.log("[tz] >>>>>>>>staked balance  ", stakedBalance)
 
   return (
     <StyledCard

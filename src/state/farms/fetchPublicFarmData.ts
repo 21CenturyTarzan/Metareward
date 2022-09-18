@@ -96,8 +96,9 @@ const fetchFarm = async (farm: SerializedFarm): Promise<PublicFarmData> => {
       : [null, null]
 
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO
+  const aprRaw = info ? new BigNumber(info.apr?._hex) : BIG_ZERO
   const withdrawLockPeriod = info ? new BigNumber(info.withdrawLockPeriod?._hex) : BIG_ZERO
-  const poolWeight = totalAllocPoint ? allocPoint.div(new BigNumber(totalAllocPoint)) : BIG_ZERO
+  const poolWeight = aprRaw;
   const lpTokenValue = (info && info.balance) ? new BigNumber(info.balance?._hex).div(BIG_TEN.pow(quoteTokenDecimals)) : BIG_ZERO
   return {
     tokenAmountTotal: tokenAmountTotal.toJSON(),

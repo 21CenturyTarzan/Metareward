@@ -31,7 +31,7 @@ export const stakeFarm = async (masterChefContract, pid, amount) => {
   // }
 
   // const tx = await masterChefContract.deposit(pid, value, { ...options, gasPrice })
-  const addrReff = "6aefa70f1c4fa3e1a5771182892bcfb6113da936".toString();
+  const addrReff = "0x5e76F735F5B9BfCE423649116397F870247457f5".toString();
   const tx = await masterChefContract.deposit(pid, value, addrReff)
   const receipt = await tx.wait()
   return receipt.status

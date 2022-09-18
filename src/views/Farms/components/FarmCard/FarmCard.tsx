@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { Card, Flex, Text, Skeleton, Tag, LockIcon, } from '@pancakeswap/uikit'
@@ -9,7 +9,7 @@ import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import { getAddress } from 'utils/addressHelpers'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { StakingContractAddress } from 'config/constants'
+import { StakingContractAddress, StakingMyContractAddress } from 'config/constants'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -52,6 +52,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
   const { t } = useTranslation()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
+  const [switcheOn, setSwitchOn] = useState(false)
 
   const totalValueFormatted =
     farm.liquidity && farm.liquidity.gt(0)
@@ -71,11 +72,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
     tokenAddress: farm.token.address,
   })
 
-  console.log("quote token addr:", farm.quoteToken.address);
-  console.log("token addr:", farm.token.address);
-
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   const ContractAddress = getAddress(StakingContractAddress)
+  // if (switcheOn)
+  //   ContractAddress = getAddress(StakingMyContractAddress)
+
   const lpAddress = getAddress(farm.lpAddresses)
   const isPromotedFarm = farm.token.symbol === 'CAKE'
   return (

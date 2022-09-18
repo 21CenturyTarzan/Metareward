@@ -86,6 +86,7 @@ export interface DeserializedFarmConfig extends FarmConfigBaseProps {
 interface PoolConfigBaseProps {
   sousId: number
   contractAddress: Address
+  contractAddressV2: Address
   poolCategory: PoolCategory
   tokenPerBlock: string
   sortOrder?: number

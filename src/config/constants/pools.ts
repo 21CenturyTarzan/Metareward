@@ -11,7 +11,11 @@ const pools: SerializedPoolConfig[] = [
     contractAddress: {
       97: '',
       // 97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -27,7 +31,11 @@ const pools: SerializedPoolConfig[] = [
     contractAddress: {
       97: '',
       // 97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -43,7 +51,11 @@ const pools: SerializedPoolConfig[] = [
     contractAddress: {
       97: '',
       // 97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -58,7 +70,11 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.wsc,
     contractAddress: {
       97: '',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -72,7 +88,11 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.wsc,
     contractAddress: {
       97: '',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -86,7 +106,11 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.wsc,
     contractAddress: {
       97: '',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -100,7 +124,11 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.wsc,
     contractAddress: {
       97: '',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -114,7 +142,11 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.wsc,
     contractAddress: {
       97: '',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -128,7 +160,11 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.wsc,
     contractAddress: {
       97: '',
-      56: '0x78Fc66Ede700561eA99cca7e9E2505778DC9f257',
+      56: '0xf4d815aF311C3A83E3e274a61C4d5f16395bD604',
+    },
+    contractAddressV2: {
+      97: '',
+      56: '0x4615f19b685b0eF3d8124f7901Ba2f8492788070',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
